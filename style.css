@@ -1,0 +1,73 @@
+body {
+    background-color: rgba(75, 72, 72, 0.827) !important;
+}
+
+.gameHeader {
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: #8ed25a;
+}
+
+.gameDiv {
+    display: flex;
+    justify-content: center;
+    height: 70vh;
+    align-items: center;
+}
+
+.mainField{
+    display: flex;
+    justify-content: space-around;
+    height: 60vh;
+    width: 60vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid black;
+}
+
+.row1{
+    display: flex;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    height: 33.33%;
+    align-items: center;
+}
+
+.row2{
+    display: flex;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    height: 33.33%;
+    align-items: center;
+}
+
+.row3{
+    display: flex;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    height: 33.33%;
+    align-items: center;
+}
+
+.fields {
+    border: 1px solid black;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 55px;
+    color: white;
+}
+
+.fields:hover {
+    background-color: rgba(0, 255, 255, 0.636);
+    transition: background-color 225ms ease-in-out;
+    cursor: pointer;
+}
