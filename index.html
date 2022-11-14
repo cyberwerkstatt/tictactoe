@@ -15,8 +15,9 @@
     <div class="gameHeader">
         <h1>Tic Tac Toe</h1>
     </div>
+    <div id="winScreen" style="display: none;">test</div>
 
-    <div class="gameDiv">
+    <div id="gameDiv" class="gameDiv" style="">
         <div class="mainField">
             <div class="row1">
                 <div id="field1" class="fields" onclick="startGame('field1')"></div>
@@ -34,10 +35,10 @@
                 <div id="field9" class="fields" onclick="startGame('field9')"></div>
             </div>
         </div>
+    </div>
 
-        <div class="buttonDiv">
-            <button type="button" class="btn btn-primary btn-lg" onclick="restartGame()">Restart</button>
-        </div>
+    <div class="buttonDiv">
+        <button type="button" class="btn btn-primary btn-lg" onclick="restartGame()">Restart</button>
     </div>
     
   </body>

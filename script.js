@@ -21,12 +21,10 @@ function startGame(selection){
         document.getElementById(selection).innerHTML = player1;
         fields[0][selection] = "X";
         changePlayer();
-        checkWin();
     }else {
         document.getElementById(selection).innerHTML = player2;
         fields[0][selection] = "O";
         changePlayer();
-        checkWin();
     }
     
 }
@@ -34,40 +32,35 @@ function startGame(selection){
 
 function changePlayer(){
     turn++;
+    if (turn >= 5){
+        checkWin();
+    }
 }
 
 function checkWin(){
-    if (turn >= 5){
-        if(fields[0]["field1"] == fields[0]["field2"] && fields[0]["field2"] == fields[0]["field3"]) 
-        console.log("win")
+    if(fields[0]["field1"] == fields[0]["field2"] && fields[0]["field2"] == fields[0]["field3"]) {
+        activateWinScreen();
     }
-    if (turn >= 5){
-        if(fields[0]["field1"] == fields[0]["field5"] && fields[0]["field5"] == fields[0]["field9"]) 
-        console.log("win")
+    if(fields[0]["field1"] == fields[0]["field5"] && fields[0]["field5"] == fields[0]["field9"]){
+        activateWinScreen();
     }
-    if (turn >= 5){
-        if(fields[0]["field1"] == fields[0]["field4"] && fields[0]["field4"] == fields[0]["field7"]) 
-        console.log("win")
+    if(fields[0]["field1"] == fields[0]["field4"] && fields[0]["field4"] == fields[0]["field7"]) {
+        activateWinScreen();
     }
-    if (turn >= 5){
-        if(fields[0]["field2"] == fields[0]["field5"] && fields[0]["field5"] == fields[0]["field8"]) 
-        console.log("win")
+    if(fields[0]["field2"] == fields[0]["field5"] && fields[0]["field5"] == fields[0]["field8"]){
+        activateWinScreen();
     }
-    if (turn >= 5){
-        if(fields[0]["field3"] == fields[0]["field6"] && fields[0]["field6"] == fields[0]["field9"]) 
-        console.log("win")
+    if(fields[0]["field3"] == fields[0]["field6"] && fields[0]["field6"] == fields[0]["field9"]){
+        activateWinScreen();
     }
-    if (turn >= 5){
-        if(fields[0]["field7"] == fields[0]["field8"] && fields[0]["field8"] == fields[0]["field9"]) 
-        console.log("win")
+    if(fields[0]["field7"] == fields[0]["field8"] && fields[0]["field8"] == fields[0]["field9"]) {
+        activateWinScreen();
     }
-    if (turn >= 5){
-        if(fields[0]["field4"] == fields[0]["field5"] && fields[0]["field5"] == fields[0]["field6"]) 
-        console.log("win")
+    if(fields[0]["field4"] == fields[0]["field5"] && fields[0]["field5"] == fields[0]["field6"]) {
+        activateWinScreen();
     }
-    if (turn >= 5){
-        if(fields[0]["field3"] == fields[0]["field5"] && fields[0]["field5"] == fields[0]["field7"]) 
-        console.log("win")
+    if(fields[0]["field3"] == fields[0]["field5"] && fields[0]["field5"] == fields[0]["field7"]) {
+        activateWinScreen();
     }
 }
 
@@ -88,7 +81,13 @@ function restartGame(){
     for(let i = 1; i<=9; i++){
         document.getElementById(field+`${i}`).innerHTML = "";
     }
+    document.getElementById("winScreen").setAttribute("style","display: none;");
+    document.getElementById("gameDiv").removeAttribute("style","display: none;")
+}
 
+function activateWinScreen(){
+    document.getElementById("winScreen").removeAttribute("style");
+    document.getElementById("gameDiv").setAttribute("style","display: none;");
 }
 
 
