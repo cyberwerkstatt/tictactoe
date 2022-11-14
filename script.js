@@ -38,29 +38,34 @@ function changePlayer(){
 }
 
 function checkWin(){
-    if(fields[0]["field1"] == fields[0]["field2"] && fields[0]["field2"] == fields[0]["field3"]) {
-        activateWinScreen();
+    let winner;
+    if(fields[0]["field1"] == fields[0]["field2"] && fields[0]["field2"] == fields[0]["field3"]){
+        winner = fields[0]["field1"];
     }
-    if(fields[0]["field1"] == fields[0]["field5"] && fields[0]["field5"] == fields[0]["field9"]){
-        activateWinScreen();
+    if(fields[0]["field4"] == fields[0]["field5"] && fields[0]["field5"] == fields[0]["field6"]){
+        winner = fields[0]["field4"];
     }
-    if(fields[0]["field1"] == fields[0]["field4"] && fields[0]["field4"] == fields[0]["field7"]) {
-        activateWinScreen();
+    if(fields[0]["field7"] == fields[0]["field8"] && fields[0]["field8"] == fields[0]["field9"]){
+        winner = fields[0]["field7"];
+    }
+    if(fields[0]["field1"] == fields[0]["field4"] && fields[0]["field4"] == fields[0]["field7"]){
+        winner = fields[0]["field1"];
     }
     if(fields[0]["field2"] == fields[0]["field5"] && fields[0]["field5"] == fields[0]["field8"]){
-        activateWinScreen();
+        winner = fields[0]["field2"];
     }
     if(fields[0]["field3"] == fields[0]["field6"] && fields[0]["field6"] == fields[0]["field9"]){
-        activateWinScreen();
+        winner = fields[0]["field3"];
     }
-    if(fields[0]["field7"] == fields[0]["field8"] && fields[0]["field8"] == fields[0]["field9"]) {
-        activateWinScreen();
+    if(fields[0]["field1"] == fields[0]["field5"] && fields[0]["field5"] == fields[0]["field9"]){
+        winner = fields[0]["field1"];
     }
-    if(fields[0]["field4"] == fields[0]["field5"] && fields[0]["field5"] == fields[0]["field6"]) {
-        activateWinScreen();
+    if(fields[0]["field3"] == fields[0]["field5"] && fields[0]["field5"] == fields[0]["field7"]){
+       winner = fields[0]["field3"]; 
     }
-    if(fields[0]["field3"] == fields[0]["field5"] && fields[0]["field5"] == fields[0]["field7"]) {
-        activateWinScreen();
+
+    if (winner){
+        win();
     }
 }
 
@@ -82,13 +87,29 @@ function restartGame(){
         document.getElementById(field+`${i}`).innerHTML = "";
     }
     document.getElementById("winScreen").setAttribute("style","display: none;");
-    document.getElementById("gameDiv").removeAttribute("style","display: none;")
+    document.getElementById("gameDiv").removeAttribute("style","display: none;");
 }
 
-function activateWinScreen(){
-    document.getElementById("winScreen").removeAttribute("style");
-    document.getElementById("gameDiv").setAttribute("style","display: none;");
+function activateWinScreen(time){
+    timeOut(time);
 }
 
 
+function timeOut(time){
+    setTimeout(function() {
+        // Code, der erst nach x-time Sekunden ausgeführt wird
+        document.getElementById("winScreen").removeAttribute("style");
+        document.getElementById("gameDiv").setAttribute("style","display: none;");
+      }, time);
+}
 
+function applaus(){
+    var audio = new Audio("./sound/applaus.mp3");
+    audio.play();
+}
+
+function win(){
+    activateWinScreen(2000);
+    applaus();
+    console.log("win");
+}
