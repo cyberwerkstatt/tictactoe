@@ -19,14 +19,16 @@ let fields = [{
 function startGame(selection){
     if (turn == 0 || turn == 2 || turn == 4 || turn == 6 || turn == 8){
         document.getElementById(selection).innerHTML = player1;
-        fields[selection] = player1;
+        fields[0][selection] = "X";
         changePlayer();
+        checkWin();
     }else {
         document.getElementById(selection).innerHTML = player2;
-        fields[selection] = player2;
+        fields[0][selection] = "O";
         changePlayer();
+        checkWin();
     }
-    chekWin();
+    
 }
 
 
@@ -34,15 +36,39 @@ function changePlayer(){
     turn++;
 }
 
-function chekWin(){
-   
-    if (turn >= 3){
-        for(i = 1; i >= 9; i++){
-            idOfField = fields[0][`field${i}`];
-            console.log(idOfField)
-        }
+function checkWin(){
+    if (turn >= 5){
+        if(fields[0]["field1"] == fields[0]["field2"] && fields[0]["field2"] == fields[0]["field3"]) 
+        console.log("win")
     }
-    
+    if (turn >= 5){
+        if(fields[0]["field1"] == fields[0]["field5"] && fields[0]["field5"] == fields[0]["field9"]) 
+        console.log("win")
+    }
+    if (turn >= 5){
+        if(fields[0]["field1"] == fields[0]["field4"] && fields[0]["field4"] == fields[0]["field7"]) 
+        console.log("win")
+    }
+    if (turn >= 5){
+        if(fields[0]["field2"] == fields[0]["field5"] && fields[0]["field5"] == fields[0]["field8"]) 
+        console.log("win")
+    }
+    if (turn >= 5){
+        if(fields[0]["field3"] == fields[0]["field6"] && fields[0]["field6"] == fields[0]["field9"]) 
+        console.log("win")
+    }
+    if (turn >= 5){
+        if(fields[0]["field7"] == fields[0]["field8"] && fields[0]["field8"] == fields[0]["field9"]) 
+        console.log("win")
+    }
+    if (turn >= 5){
+        if(fields[0]["field4"] == fields[0]["field5"] && fields[0]["field5"] == fields[0]["field6"]) 
+        console.log("win")
+    }
+    if (turn >= 5){
+        if(fields[0]["field3"] == fields[0]["field5"] && fields[0]["field5"] == fields[0]["field7"]) 
+        console.log("win")
+    }
 }
 
 function restartGame(){
