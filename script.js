@@ -1,6 +1,7 @@
 let player1 = "X";
 let player2 = "O";
 
+
 let turn = 0;
 
 let fields = [{
@@ -17,16 +18,17 @@ let fields = [{
 
 
 function startGame(selection){
-    if (turn == 0 || turn == 2 || turn == 4 || turn == 6 || turn == 8){
-        document.getElementById(selection).innerHTML = player1;
-        fields[0][selection] = "X";
-        changePlayer();
-    }else {
-        document.getElementById(selection).innerHTML = player2;
-        fields[0][selection] = "O";
-        changePlayer();
-    }
-    
+    if (!(fields[0][selection] == "O")){
+        if (turn == 0 || turn == 2 || turn == 4 || turn == 6 || turn == 8){
+            document.getElementById(selection).innerHTML = player1;
+            fields[0][selection] = "X";
+            changePlayer();
+        }else {
+            document.getElementById(selection).innerHTML = player2;
+            fields[0][selection] = "O";
+            changePlayer();
+        }
+    } 
 }
 
 
@@ -63,7 +65,6 @@ function checkWin(){
     if(fields[0]["field3"] == fields[0]["field5"] && fields[0]["field5"] == fields[0]["field7"]){
        winner = fields[0]["field3"]; 
     }
-
     if (winner){
         win();
     }
