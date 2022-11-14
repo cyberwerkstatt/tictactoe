@@ -18,7 +18,7 @@ let fields = [{
 
 
 function startGame(selection){
-    if (!(fields[0][selection] == "O")){
+    if(fields[0][selection] == ""){
         if (turn == 0 || turn == 2 || turn == 4 || turn == 6 || turn == 8){
             document.getElementById(selection).innerHTML = player1;
             fields[0][selection] = "X";
@@ -27,10 +27,11 @@ function startGame(selection){
             document.getElementById(selection).innerHTML = player2;
             fields[0][selection] = "O";
             changePlayer();
-        }
-    } 
+        } 
+    }
+    
+    
 }
-
 
 function changePlayer(){
     turn++;
