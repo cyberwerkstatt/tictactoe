@@ -28,9 +28,7 @@ function startGame(selection){
             fields[0][selection] = "O";
             changePlayer();
         } 
-    }
-    
-    
+    } 
 }
 
 function changePlayer(){
