@@ -72,9 +72,23 @@ function checkWin(){
 }
 
 function restartGame(){
-    if (turn > 9){
-        turn = 0;
+    turn = 0;
+    fields = [{
+        "field1":"",
+        "field2":"",
+        "field3":"",
+        "field4":"",
+        "field5":"",
+        "field6":"",
+        "field7":"",
+        "field8":"",
+        "field9":""
+    }]
+    let field = `field`;
+    for(let i = 1; i<=9; i++){
+        document.getElementById(field+`${i}`).innerHTML = "";
     }
+
 }
 
 
